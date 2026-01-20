@@ -6,6 +6,7 @@
   <title>Análisis Demográfico de Natalidad en LATAM (2001–2023)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
@@ -20,8 +21,7 @@
     }
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       background: #ffffffdd;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -79,6 +79,18 @@
     table.styled-table tbody tr:hover {
       background-color: #e6edff;
     }
+    .download-list li {
+      margin-bottom: 8px;
+    }
+    .download-list a {
+      background: #4b4bff;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+    }
     .image-center {
       display: block;
       margin: 20px auto;
@@ -101,7 +113,7 @@
 
 <body>
 
-  <!-- Menú con anclas -->
+  <!-- Menú -->
   <nav>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
@@ -115,13 +127,21 @@
     <h1>Análisis Demográfico de Natalidad en LATAM (2001–2023)</h1>
     <p><strong>Autor:</strong> Patricia Orellana (@patriciaorellana_comunica) — <strong>Fecha:</strong> 2026</p>
     <p>
-      Este proyecto analiza la evolución de las tasas de natalidad en América Latina entre 2001 y 2023, mostrando un ranking de países
-      según natalidad promedio y destacando tendencias demográficas de relevancia para políticas públicas.
+      Este proyecto analiza la evolución de las tasas de natalidad en América Latina entre 2001 y 2023 y presenta un ranking
+      comparativo de países según su natalidad promedio para apoyar el análisis de tendencias demográficas y políticas públicas.
     </p>
   </div>
 
-  <!-- Ranking fijo de países -->
+  <!-- Descarga de datos -->
   <div class="container" id="datos">
+    <h2>📥 Descarga de datos</h2>
+    <ul class="download-list">
+      <li><a href="data/natalidad_latam_25_anios_limpio.csv" download>natalidad_latam_25_anios_limpio.csv</a></li>
+      <li><a href="data/natalidad_latam_25_anios.csv" download>natalidad_latam_25_anios.csv</a></li>
+      <li><a href="data/natalidad_latam_ranking.csv" download>natalidad_latam_ranking.csv</a></li>
+      <li><a href="data/summary.csv" download>summary.csv</a></li>
+    </ul>
+
     <h2>📊 Ranking de países por natalidad promedio</h2>
     <table class="styled-table">
       <thead>
@@ -150,17 +170,16 @@
       </tbody>
     </table>
 
-    <!-- Imagen local -->
     <img src="img/natalidad_latam_tendencia.png" alt="Tendencia de natalidad en LATAM" class="image-center">
   </div>
 
-  <!-- Hallazgos principales -->
+  <!-- Hallazgos -->
   <div class="container" id="hallazgos">
     <h2>🧠 Hallazgos principales</h2>
     <ul class="findings-list">
-      <li>🔻 En la mayoría de países de América Latina, la natalidad ha continuado su tendencia decreciente en las últimas décadas, reflejando cambios demográficos amplios a nivel regional. :contentReference[oaicite:0]{index=0}</li>
-      <li>📉 Factores como mayor acceso a educación y métodos anticonceptivos, así como el incremento de la participación laboral femenina, están fuertemente asociados con la reducción de la tasa de natalidad. :contentReference[oaicite:1]{index=1}</li>
-      <li>🏛️ El descenso de la natalidad presenta retos para las políticas públicas, tales como el envejecimiento de la población y la sustentabilidad de los sistemas de pensiones. :contentReference[oaicite:2]{index=2}</li>
+      <li>🔻 Las tasas de natalidad en América Latina muestran tendencias de descenso entre 2001 y 2023, reflejando cambios en patrones demográficos regionales.</li>
+      <li>📉 Factores como educación, urbanización y mayor acceso a servicios de salud reproductiva se asocian con estas disminuciones.</li>
+      <li>🏛️ La reducción de la natalidad implica desafíos para políticas públicas relacionadas con envejecimiento poblacional, seguridad social y atención sanitaria.</li>
     </ul>
   </div>
 
@@ -171,6 +190,7 @@
 </body>
 
 </html>
+
 
 
 
