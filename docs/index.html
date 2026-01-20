@@ -13,18 +13,19 @@
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #fafafa;
+      background: #f0f4f8;  /* azul muy claro de fondo */
       margin: 0;
       padding: 40px;
-      color: #222;
+      color: #333;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      background: white;
+      background: #ffffff;
       padding: 40px;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
 
     .header-image {
@@ -33,8 +34,9 @@
       background-image: url("img/header.jpg");
       background-size: cover;
       background-position: center;
-      border-radius: 8px;
+      border-radius: 12px;
       margin-bottom: 30px;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.1);
     }
 
     h1, h2 {
@@ -44,13 +46,15 @@
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
+      color: #2a2a72; /* azul oscuro elegante */
       margin-top: 0;
     }
 
     h2 {
+      font-size: 1.8rem;
+      color: #4b4bff; /* azul medio */
       margin-top: 50px;
-      font-size: 1.6rem;
     }
 
     .meta {
@@ -62,8 +66,9 @@
     p {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      line-height: 1.8;
+      line-height: 1.9;
       font-size: 1.05rem;
+      color: #444;
     }
 
     ul {
@@ -72,9 +77,13 @@
     }
 
     a {
-      color: #6b6bff;
-      text-decoration: none;
+      color: #4b4bff;
       font-weight: 500;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     table {
@@ -109,16 +118,17 @@
 
     .bar-fill {
       height: 12px;
-      background: #6b6bff;
+      background: #4b4bff;
       border-radius: 6px;
     }
 
     .note {
-      background: #f7f8ff;
+      background: #e6edff;
+      border-left: 4px solid #4b4bff;
       padding: 15px;
-      border-left: 4px solid #6b6bff;
       margin-top: 20px;
       font-size: 0.9rem;
+      color: #333;
     }
 
     .source {
@@ -206,6 +216,10 @@
       Fuente: Datos históricos de tasas de natalidad (nacimientos por cada 1.000 habitantes)
       en América Latina, periodo 2001–2023.
     </div>
+
+  </div>
+</body>
+</html>
 
   </div>
 </body>
