@@ -20,7 +20,8 @@
     }
     nav {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       background: #ffffffdd;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -52,8 +53,10 @@
       font-style: italic;
       text-align: center;
     }
-    h2 { color: #4b4bff; margin-top: 30px; }
-
+    h2 {
+      color: #4b4bff;
+      margin-top: 30px;
+    }
     table.styled-table {
       width: 100%;
       border-collapse: collapse;
@@ -76,7 +79,6 @@
     table.styled-table tbody tr:hover {
       background-color: #e6edff;
     }
-
     .image-center {
       display: block;
       margin: 20px auto;
@@ -84,12 +86,10 @@
       height: auto;
       border-radius: 8px;
     }
-
     .findings-list li {
       margin-bottom: 10px;
       line-height: 1.5;
     }
-
     footer {
       text-align: center;
       font-size: 0.85rem;
@@ -101,7 +101,7 @@
 
 <body>
 
-  <!-- Menú simple con anclas -->
+  <!-- Menú con anclas -->
   <nav>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
@@ -116,14 +116,13 @@
     <p><strong>Autor:</strong> Patricia Orellana (@patriciaorellana_comunica) — <strong>Fecha:</strong> 2026</p>
     <p>
       Este proyecto analiza la evolución de las tasas de natalidad en América Latina entre 2001 y 2023, mostrando un ranking de países
-      basado en promedio de natalidad y destacando tendencias relevantes de políticas públicas y demografía.
+      según natalidad promedio y destacando tendencias demográficas de relevancia para políticas públicas.
     </p>
   </div>
 
-  <!-- Ranking de países -->
+  <!-- Ranking fijo de países -->
   <div class="container" id="datos">
     <h2>📊 Ranking de países por natalidad promedio</h2>
-
     <table class="styled-table">
       <thead>
         <tr><th>País</th><th>Ranking</th></tr>
@@ -159,9 +158,9 @@
   <div class="container" id="hallazgos">
     <h2>🧠 Hallazgos principales</h2>
     <ul class="findings-list">
-      <li>🔻 La tasa de natalidad en América Latina ha mostrado una disminución sostenida en las últimas dos décadas.</li>
-      <li>📉 Factores socioeconómicos como educación y urbanización explican parte de esta tendencia.</li>
-      <li>🏛️ Las políticas públicas de apoyo a la familia pueden influir en la estabilización de la natalidad.</li>
+      <li>🔻 En la mayoría de países de América Latina, la natalidad ha continuado su tendencia decreciente en las últimas décadas, reflejando cambios demográficos amplios a nivel regional. :contentReference[oaicite:0]{index=0}</li>
+      <li>📉 Factores como mayor acceso a educación y métodos anticonceptivos, así como el incremento de la participación laboral femenina, están fuertemente asociados con la reducción de la tasa de natalidad. :contentReference[oaicite:1]{index=1}</li>
+      <li>🏛️ El descenso de la natalidad presenta retos para las políticas públicas, tales como el envejecimiento de la población y la sustentabilidad de los sistemas de pensiones. :contentReference[oaicite:2]{index=2}</li>
     </ul>
   </div>
 
