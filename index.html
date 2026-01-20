@@ -18,7 +18,6 @@
       padding: 0;
       color: #333;
     }
-
     nav {
       position: fixed;
       top: 0; left: 0;
@@ -66,7 +65,6 @@
     table.styled-table thead tr {
       background-color: #4b4bff;
       color: white;
-      text-align: left;
     }
     table.styled-table th,
     table.styled-table td {
@@ -143,27 +141,20 @@
     </ul>
     <p>ℹ️ Si el CSV se abre en el navegador: clic derecho → “Guardar enlace como…”</p>
 
-    <!-- Tabla ranking País + Ranking -->
     <h2>📊 Ranking por natalidad promedio</h2>
     <div id="simpleTable">Cargando ranking…</div>
 
-    <!-- Imagen de tendencia -->
-    <img src="data/natalidad_latam_tendencia.png" alt="Tendencia de natalidad en LATAM" class="image-center">
+    <!-- Imagen de tendencia cargada desde la carpeta img -->
+    <img src="img/natalidad_latam_tendencia.png" alt="Tendencia de natalidad en LATAM" class="image-center">
   </div>
 
   <!-- Hallazgos -->
   <div class="container" id="hallazgos">
     <h2>🧠 Hallazgos principales</h2>
     <ul class="findings-list">
-      <li>🔻 La tasa de natalidad en América Latina ha mostrado una disminución sostenida entre 2001 y 2023, continuando la tendencia
-          descendente del nacimientos por cada 1 000 habitantes observada en la región. :contentReference[oaicite:0]{index=0}
-      </li>
-      <li>📉 Factores como mayor educación, acceso a métodos anticonceptivos y participación laboral femenina están asociados a
-          la caída de la natalidad en muchos países latinoamericanos. :contentReference[oaicite:1]{index=1}
-      </li>
-      <li>🏛️ La reducción de natalidad plantea desafíos para políticas públicas enfocadas en equilibrio demográfico, seguridad social
-          y envejecimiento poblacional. :contentReference[oaicite:2]{index=2}
-      </li>
+      <li>🔻 La tasa de natalidad en América Latina ha mostrado una disminución sostenida entre 2001 y 2023.</li>
+      <li>📉 Factores como mayor educación, acceso a métodos anticonceptivos y participación laboral femenina están asociados a estas tendencias.</li>
+      <li>🏛️ La reducción de natalidad plantea desafíos para políticas públicas enfocadas en equilibrio demográfico y envejecimiento poblacional.</li>
     </ul>
   </div>
 
@@ -171,9 +162,8 @@
     <p>© 2026 Análisis Demográfico de Natalidad en LATAM — Proyecto de comunicación de datos</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Script de ranking -->
   <script>
-    // Cargar y mostrar ranking País + Ranking
     fetch('data/summary.csv')
       .then(resp => resp.text())
       .then(text => {
@@ -182,7 +172,7 @@
         const data = rows.slice(1).map(r => {
           const values = r.split('\t');
           const obj = {};
-          headers.forEach((h,i) => obj[h] = values[i]);
+          headers.forEach((h,i) => obj[h] = values[i] ? values[i].trim() : '');
           return obj;
         });
 
@@ -206,6 +196,7 @@
 </body>
 
 </html>
+
 
 
 </body>
