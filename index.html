@@ -5,144 +5,67 @@
 <title>Análisis Demográfico de Natalidad en LATAM (2001–2023)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
 <style>
   body {
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
     background: #f0f4f8;
+    margin: 0;
+    padding: 40px;
     color: #333;
   }
 
-  /* ==== MENU FIJO ===== */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; left: 0; width: 100%;
     background: #ffffffdd;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     z-index: 999;
   }
-  nav ul {
-    margin: 0;
-    padding: 0.8rem;
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    justify-content: center;
-  }
-  nav a {
-    font-weight: 500;
-    text-decoration: none;
-    color: #4b4bff;
-  }
-  nav a:hover {
-    text-decoration: underline;
-  }
+  nav ul { margin:0; padding:0.8rem; display:flex; gap:1rem; list-style:none; justify-content:center; }
+  nav a { font-weight:500; text-decoration:none; color:#4b4bff; }
+  nav a:hover { text-decoration:underline; }
 
   .container {
     max-width: 900px;
-    margin: 120px auto 60px; /* deja espacio para el menú */
-    background: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin: 120px auto 60px;
+    background:#fff;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
   }
 
-  .header-image {
-    width: 100%;
-    height: 280px;
-    background-image: url("img/natalidad_latam_tendencia.png");
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    margin-bottom: 30px;
-  }
+  h1,h2 { font-family:'Playfair Display',serif; font-style:italic; font-weight:400; margin-top:0; }
+  h2 { color:#4b4bff; margin-top:50px; }
 
-  h1, h2 {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 400;
-    margin-top: 0;
-  }
+  .meta { font-size:0.85rem; color:#777; margin-bottom:25px; }
+  p { font-size:1.05rem; line-height:1.9; color:#444; }
+  ul { line-height:1.8; padding-left:20px; }
+  a { color:#4b4bff; font-weight:500; text-decoration:none; }
+  a:hover { text-decoration:underline; }
 
-  h2 {
-    color: #4b4bff;
-  }
+  table { width:100%; border-collapse:collapse; margin-top:20px; font-size:0.95rem; }
+  th,td { padding:12px; border-bottom:1px solid #eee; text-align:left; }
+  th { background:#f6f6f6; }
+  tbody tr:hover { background:#f1faff; }
 
-  .meta {
-    font-size: 0.85rem;
-    color: #777;
-    margin-bottom: 25px;
-  }
+  .note { background:#e6edff; border-left:4px solid #4b4bff; padding:15px; margin-top:20px; font-size:0.9rem; }
+  .source { font-size:0.85rem; color:#666; margin-top:30px; }
 
-  .note {
-    background: #e6edff;
-    border-left: 4px solid #4b4bff;
-    padding: 15px;
-    margin-top: 15px;
-    font-size: 0.9rem;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    margin-top: 20px;
-  }
-  th, td {
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-    text-align: left;
-  }
-  th {
-    background: #f6f6f6;
-  }
-  tbody tr:hover {
-    background: #f1faff; /* resalta la fila al pasar el cursor */ :contentReference[oaicite:0]{index=0}
-  }
-
-  /* Botón volver arriba */
   #toTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #4b4bff;
-    color: #fff;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 18px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display:none; position:fixed; bottom:30px; right:30px;
+    background:#4b4bff; color:#fff; padding:12px 16px;
+    border:none; border-radius:50px; cursor:pointer; font-size:18px;
   }
-  #toTopBtn:hover {
-    background: #3a3acc;
-  }
-
-  .findings {
-    margin-top: 30px;
-    padding: 20px;
-    background: #eef4ff;
-    border-left: 4px solid #4b4bff;
-  }
-  .findings ul {
-    list-style-type: disc;
-    margin-left: 1.2rem;
-  }
+  #toTopBtn:hover { background:#3a3acc; }
 </style>
-</head>
 
+</head>
 <body>
 
-<!-- ===== MENU DE SECCIONES ===== -->
 <nav>
   <ul>
     <li><a href="#inicio">Inicio</a></li>
@@ -152,99 +75,71 @@
 </nav>
 
 <div class="container" id="inicio">
-
   <h1>Análisis Demográfico de Natalidad en LATAM (2001–2023)</h1>
-
-  <div class="meta">
-    Autor: Patricia Orellana (@patriciaorellana_comunica) — Fecha: 2026
-  </div>
-
-  <p>
-    Este proyecto analiza la evolución de las tasas de natalidad en América Latina
-    entre 2001 y 2023, con el objetivo de demostrar un flujo de trabajo reproducible
-    de limpieza de datos, procesamiento estadístico y ranking de indicadores demográficos
-    para la comunicación de datos y el análisis de políticas públicas.
-  </p>
-
+  <div class="meta">Autor: Patricia Orellana (@patriciaorellana_comunica) — Fecha: 2026</div>
+  <p>Este proyecto analiza la evolución de las tasas de natalidad en América Latina entre 2001 y 2023.</p>
 </div>
 
-<!-- ===== SECCIÓN DATOS ===== -->
 <div class="container" id="datos">
-
   <h2>Descarga de datos</h2>
-
   <ul>
     <li><a href="data/natalidad_latam_25_anios_limpio.csv">natalidad_latam_25_anios_limpio.csv</a></li>
     <li><a href="data/natalidad_latam_25_anios.csv">natalidad_latam_25_anios.csv</a></li>
     <li><a href="data/natalidad_latam_ranking.csv">natalidad_latam_ranking.csv</a></li>
     <li><a href="data/summary.csv">summary.csv</a></li>
   </ul>
+  <div class="note">ℹ️ Si el CSV se abre en el navegador: clic derecho → “Guardar enlace como…”</div>
 
-  <div class="note">
-    ℹ️ Si el CSV se abre en el navegador:<br>
-    <b>clic derecho → “Guardar enlace como…”</b>
-  </div>
-
-  <h2>Resumen estadístico por país</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>País</th>
-        <th>Tasa 2001</th>
-        <th>Tasa 2023</th>
-        <th>Cambio (%)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Argentina</td><td>20.1</td><td>16.7</td><td>-16.9%</td></tr>
-      <tr><td>Brasil</td><td>19.8</td><td>15.5</td><td>-21.7%</td></tr>
-      <tr><td>Chile</td><td>18.5</td><td>14.0</td><td>-24.3%</td></tr>
-      <!-- Podés completar más filas con datos reales -->
-    </tbody>
-  </table>
-
+  <h2>Resumen estadístico (por país)</h2>
+  <div id="summaryTable">Cargando resumen...</div>
 </div>
 
-<!-- ===== SECCIÓN HALLAZGOS ===== -->
 <div class="container" id="hallazgos">
-
   <h2>Hallazgos principales</h2>
-
-  <div class="findings">
-    <ul>
-      <li>La mayoría de países de LATAM han mostrado una fuerte disminución de las tasas de natalidad.</li>
-      <li>Países con mayor índice de envejecimiento presentan tendencias más marcadas.</li>
-      <li>Las políticas públicas influyen en la estabilización de la tasa en el periodo reciente.</li>
-    </ul>
-  </div>
-
-  <!-- Encabezado gráfico -->
-  <div class="header-image"></div>
-
-  <div class="source">
-    Fuente: Datos históricos de tasas de natalidad (nacimientos por cada 1.000 habitantes)
-    en América Latina, periodo 2001–2023.
-  </div>
-
+  <ul>
+    <li>La mayoría de países de LATAM mostró una reducción de natalidad.</li>
+    <li>Los países con mayor estabilidad poblacional presentan menores variaciones.</li>
+    <li>En general, la tendencia de largo plazo es descendente.</li>
+  </ul>
+  <div class="source">Fuente: summary.csv — tasas de natalidad en América Latina (2001–2023).</div>
 </div>
 
-<!-- ===== BOTÓN VOLVER ARRIBA ===== -->
 <button id="toTopBtn" title="Volver arriba">↑</button>
 
 <script>
-  // Mostrar el botón cuando se hace scroll abajo
-  const toTopBtn = document.getElementById("toTopBtn");
-  window.onscroll = () => {
-    if (window.scrollY > 300) toTopBtn.style.display = "block";
-    else toTopBtn.style.display = "none";
-  };
-  toTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+// Botón “Volver arriba”
+const toTopBtn = document.getElementById("toTopBtn");
+window.onscroll = () => {
+  toTopBtn.style.display = (window.scrollY > 300) ? 'block' : 'none';
+};
+toTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+// Cargar summary.csv y construir tabla
+fetch('data/summary.csv')
+.then(resp => resp.text())
+.then(csvText => {
+  const lines = csvText.trim().split('\n');
+  const headers = lines[0].split('\t'); // CSV separado por tab
+  const rows = lines.slice(1).map(l => l.split('\t'));
+
+  let html = '<table><thead><tr>';
+  headers.forEach(h => html += `<th>${h}</th>`);
+  html += '</tr></thead><tbody>';
+
+  rows.forEach(r => {
+    html += '<tr>';
+    r.forEach(cell => html += `<td>${cell}</td>`);
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+
+  document.getElementById('summaryTable').innerHTML = html;
+})
+.catch(e => {
+  document.getElementById('summaryTable').textContent = 'Error cargando summary.csv';
+});
 </script>
 
 </body>
 </html>
 
-
-  </div>
-</body>
-</html>
