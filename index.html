@@ -54,7 +54,6 @@
     }
     h2 { color: #4b4bff; margin-top: 30px; }
 
-    /* Tabla estilo moderno */
     table.styled-table {
       width: 100%;
       border-collapse: collapse;
@@ -78,6 +77,14 @@
       background-color: #e6edff;
     }
 
+    .image-center {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
     .download-list li {
       margin-bottom: 6px;
     }
@@ -89,14 +96,6 @@
     .findings-list li {
       margin-bottom: 10px;
       line-height: 1.5;
-    }
-
-    .image-center {
-      display: block;
-      margin: 20px auto;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
     }
 
     footer {
@@ -125,26 +124,41 @@
     <p><strong>Autor:</strong> Patricia Orellana (@patriciaorellana_comunica) — <strong>Fecha:</strong> 2026</p>
     <p>
       Este proyecto analiza la evolución de las tasas de natalidad en América Latina entre 2001 y 2023, con el objetivo de demostrar
-      un flujo de trabajo reproducible de limpieza de datos, procesamiento estadístico y visualización para la comunicación de datos y
-      el análisis de políticas públicas.
+      un flujo de trabajo reproducible de limpieza de datos, procesamiento estadístico y visualización para el análisis de políticas públicas.
     </p>
   </div>
 
   <!-- Datos -->
   <div class="container" id="datos">
-    <h2>📥 Descarga de datos</h2>
-    <ul class="download-list">
-      <li><a href="data/natalidad_latam_25_anios_limpio.csv" download>natalidad_latam_25_anios_limpio.csv</a></li>
-      <li><a href="data/natalidad_latam_25_anios.csv" download>natalidad_latam_25_anios.csv</a></li>
-      <li><a href="data/natalidad_latam_ranking.csv" download>natalidad_latam_ranking.csv</a></li>
-      <li><a href="data/summary.csv" download>summary.csv</a></li>
-    </ul>
-    <p>ℹ️ Si el CSV se abre en el navegador: clic derecho → “Guardar enlace como…”</p>
+    <h2>📊 Ranking de países por natalidad promedio</h2>
+    <table class="styled-table">
+      <thead>
+        <tr><th>País</th><th>Ranking</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Guatemala</td><td>1</td></tr>
+        <tr><td>Honduras</td><td>2</td></tr>
+        <tr><td>Bolivia</td><td>3</td></tr>
+        <tr><td>Nicaragua</td><td>4</td></tr>
+        <tr><td>Paraguay</td><td>5</td></tr>
+        <tr><td>Dominican Republic</td><td>6</td></tr>
+        <tr><td>Ecuador</td><td>7</td></tr>
+        <tr><td>Panama</td><td>8</td></tr>
+        <tr><td>Mexico</td><td>9</td></tr>
+        <tr><td>Venezuela</td><td>10</td></tr>
+        <tr><td>El Salvador</td><td>11</td></tr>
+        <tr><td>Peru</td><td>12</td></tr>
+        <tr><td>Colombia</td><td>13</td></tr>
+        <tr><td>Argentina</td><td>14</td></tr>
+        <tr><td>Brazil</td><td>15</td></tr>
+        <tr><td>Costa Rica</td><td>16</td></tr>
+        <tr><td>Uruguay</td><td>17</td></tr>
+        <tr><td>Chile</td><td>18</td></tr>
+        <tr><td>Cuba</td><td>19</td></tr>
+      </tbody>
+    </table>
 
-    <h2>📊 Ranking por natalidad promedio</h2>
-    <div id="simpleTable">Cargando ranking…</div>
-
-    <!-- Imagen de tendencia cargada desde la carpeta img -->
+    <!-- Imagen de tendencia -->
     <img src="img/natalidad_latam_tendencia.png" alt="Tendencia de natalidad en LATAM" class="image-center">
   </div>
 
@@ -152,9 +166,9 @@
   <div class="container" id="hallazgos">
     <h2>🧠 Hallazgos principales</h2>
     <ul class="findings-list">
-      <li>🔻 La tasa de natalidad en América Latina ha mostrado una disminución sostenida entre 2001 y 2023.</li>
-      <li>📉 Factores como mayor educación, acceso a métodos anticonceptivos y participación laboral femenina están asociados a estas tendencias.</li>
-      <li>🏛️ La reducción de natalidad plantea desafíos para políticas públicas enfocadas en equilibrio demográfico y envejecimiento poblacional.</li>
+      <li>🔻 En general, la tasa bruta de natalidad en América Latina ha tendido a disminuir en las últimas décadas, lo que se observa tanto en datos históricos como en proyecciones regionales. :contentReference[oaicite:0]{index=0}</li>
+      <li>📉 Las diferencias en tasas de natalidad entre países están influenciadas por factores socioeconómicos, acceso a educación y servicios de salud reproductiva, así como políticas públicas de apoyo a la familia. :contentReference[oaicite:1]{index=1}</li>
+      <li>🏛️ La caída de la natalidad plantea desafíos para políticas públicas en cuanto a envejecimiento poblacional, sustentabilidad de sistemas de pensiones y atención sanitaria. :contentReference[oaicite:2]{index=2}</li>
     </ul>
   </div>
 
@@ -162,41 +176,9 @@
     <p>© 2026 Análisis Demográfico de Natalidad en LATAM — Proyecto de comunicación de datos</p>
   </footer>
 
-  <!-- Script de ranking -->
-  <script>
-    fetch('data/summary.csv')
-      .then(resp => resp.text())
-      .then(text => {
-        const rows = text.trim().split(/\r?\n/);
-        const headers = rows[0].split('\t');
-        const data = rows.slice(1).map(r => {
-          const values = r.split('\t');
-          const obj = {};
-          headers.forEach((h,i) => obj[h] = values[i] ? values[i].trim() : '');
-          return obj;
-        });
-
-        data.sort((a, b) => Number(a.ranking_promedio) - Number(b.ranking_promedio));
-
-        let html = '<table class="styled-table"><thead><tr><th>País</th><th>Ranking</th></tr></thead><tbody>';
-
-        data.forEach(d => {
-          html += `<tr><td>${d.pais}</td><td>${d.ranking_promedio}</td></tr>`;
-        });
-
-        html += '</tbody></table>';
-        document.getElementById('simpleTable').innerHTML = html;
-      })
-      .catch(err => {
-        document.getElementById('simpleTable').innerHTML = '<p>Error al cargar ranking.</p>';
-        console.error(err);
-      });
-  </script>
-
 </body>
 
 </html>
-
 
 
 </body>
