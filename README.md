@@ -15,7 +15,6 @@ data/summary.csv: Matriz estadística completa que incluye valores máximos, mí
 
 Cómo correr el análisis:
 
-Bash
 # 1. Instalar dependencias
 pip install pandas numpy
 
@@ -24,4 +23,5 @@ python src/clean_natalidad.py
 
 # 3. Generar ranking y estadísticas descriptivas
 python src/generate_summary.py
+
 Website: Visualización interactiva de las tendencias demográficas publicada con GitHub Pages en la carpeta /docs. El sitio incluye gráficos comparativos que muestran el descenso generalizado de la natalidad en la región, destacando casos como el de Argentina y Perú.
